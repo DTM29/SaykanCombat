@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saykan Combat – Filipino Martial Arts in Meath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0906;
+    --charcoal: #141210;
+    --dark: #1c1916;
+    --mid: #2a2520;
+    --gold: #c4952a;
+    --gold-dim: #9a731f;
+    --gold-light: #e8b84b;
+    --offwhite: #f0ebe3;
+    --grey: #8a8078;
+    --grey-light: #b5afa7;
+    --red: #7a1f1f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--offwhite);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 4vw;
+    background: linear-gradient(to bottom, rgba(10,9,6,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(196,149,42,0.08);
+    transition: background 0.4s;
+  }
+
+  nav.scrolled {
+    background: rgba(10,9,6,0.97);
+    border-bottom-color: rgba(196,149,42,0.15);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* SVG eagle logo */
+  .nav-logo-mark svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--offwhite);
+    line-height: 1.2;
+  }
+
+  .nav-logo-text span {
+    display: block;
+    font-size: 0.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--grey-light);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    font-weight: 400;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold) !important;
+    padding: 0.5rem 1.2rem;
+    letter-spacing: 0.15em !important;
+    transition: background 0.2s, color 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--black) !important;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(10,9,6,0.92) 40%, rgba(10,9,6,0.5) 100%),
+      linear-gradient(to bottom, transparent 60%, rgba(10,9,6,1) 100%);
+    z-index: 1;
+  }
+
+  /* Procedural martial arts background */
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    background: var(--charcoal);
+    overflow: hidden;
+  }
+
+  .hero-canvas::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(196,149,42,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 80% at 80% 30%, rgba(122,31,31,0.08) 0%, transparent 60%);
+  }
+
+  /* Escrima sticks decorative element */
+  .hero-sticks {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.12;
+    z-index: 0;
+  }
+
+  .stick {
+    position: absolute;
+    width: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, var(--gold-light), var(--gold-dim));
+    transform-origin: center;
+  }
+
+  .stick-1 {
+    height: 480px;
+    top: -240px;
+    left: 80px;
+    transform: rotate(-25deg);
+  }
+
+  .stick-2 {
+    height: 480px;
+    top: -240px;
+    left: 80px;
+    transform: rotate(25deg);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 4vw;
+    max-width: 700px;
+    padding-top: 7rem;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-eyebrow-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--offwhite);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.35s ease forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--grey-light);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s ease forwards;
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.8rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.65s ease forwards;
+  }
+
+  .hero-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--grey-light);
+    letter-spacing: 0.08em;
+  }
+
+  .hero-tag::before {
+    content: '—';
+    color: var(--gold);
+    font-size: 0.6rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.25s, transform 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s ease forwards;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 4vw;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s 1.2s ease forwards;
+  }
+
+  .hero-scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--grey);
+    animation: scrollLine 2s 1.5s ease infinite;
+  }
+
+  .hero-scroll-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { transform: scaleX(1); transform-origin: left; }
+    50% { transform: scaleX(0.4); transform-origin: left; }
+  }
+
+  /* ── SECTION BASICS ── */
+  section {
+    padding: 7rem 4vw;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-eyebrow-text {
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--offwhite);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .section-body {
+    color: var(--grey-light);
+    font-size: 1rem;
+    line-height: 1.9;
+    max-width: 600px;
+    font-weight: 300;
+  }
+
+  /* ── WHY TRAIN ── */
+  #why {
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #why::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: radial-gradient(ellipse at right, rgba(196,149,42,0.04) 0%, transparent 70%);
+  }
+
+  .why-header {
+    max-width: 1100px;
+    margin: 0 auto 4rem;
+  }
+
+  .why-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .why-card {
+    padding: 2.5rem 2.5rem 2.5rem 0;
+    border-left: 1px solid rgba(196,149,42,0.15);
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .why-card:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .why-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(196,149,42,0.12);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .why-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--offwhite);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .why-card-body {
+    font-size: 0.88rem;
+    color: var(--grey);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--black);
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--dark);
+    overflow: hidden;
+  }
+
+  .about-image-fill {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, var(--charcoal) 0%, var(--mid) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Stylised FMA graphic for about image placeholder */
+  .about-graphic {
+    opacity: 0.4;
+    text-align: center;
+  }
+
+  .about-graphic svg {
+    width: 160px;
+    height: 160px;
+  }
+
+  .about-image-border {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(196,149,42,0.2);
+    z-index: -1;
+  }
+
+  .about-image-caption {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(10,9,6,0.8);
+    padding: 0.4rem 0.8rem;
+  }
+
+  .about-content { }
+
+  .about-disciplines {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .discipline-block {
+    border: 1px solid rgba(196,149,42,0.15);
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .discipline-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  .discipline-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--offwhite);
+    margin-bottom: 0.4rem;
+  }
+
+  .discipline-desc {
+    font-size: 0.82rem;
+    color: var(--grey);
+    line-height: 1.7;
+  }
+
+  .about-gm {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--charcoal);
+    border-left: 2px solid var(--gold);
+  }
+
+  .about-gm-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--grey-light);
+    line-height: 1.8;
+  }
+
+  .about-gm-credit {
+    margin-top: 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── WHAT IS FMA ── */
+  #fma {
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fma-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .fma-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .fma-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .fma-fact {
+    border-bottom: 1px solid rgba(196,149,42,0.1);
+    padding-bottom: 2rem;
+  }
+
+  .fma-fact:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .fma-fact-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .fma-fact-text {
+    font-size: 0.92rem;
+    color: var(--grey-light);
+    line-height: 1.85;
+  }
+
+  .fma-visual {
+    position: relative;
+  }
+
+  .fma-quote-block {
+    padding: 3rem;
+    background: var(--dark);
+    border: 1px solid rgba(196,149,42,0.12);
+    position: relative;
+  }
+
+  .fma-quote-block::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    color: rgba(196,149,42,0.08);
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    line-height: 1;
+  }
+
+  .fma-quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--offwhite);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fma-films {
+    margin-top: 2rem;
+    padding: 1.2rem;
+    background: rgba(196,149,42,0.06);
+    border: 1px solid rgba(196,149,42,0.1);
+  }
+
+  .fma-films-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .fma-films-list {
+    font-size: 0.85rem;
+    color: var(--grey);
+    font-style: italic;
+  }
+
+  /* ── WHAT WE TRAIN ── */
+  #training {
+    background: var(--black);
+  }
+
+  .training-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .training-header {
+    margin-bottom: 4rem;
+  }
+
+  .training-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(196,149,42,0.08);
+  }
+
+  .training-panel {
+    background: var(--black);
+    padding: 3.5rem 3rem;
+    position: relative;
+  }
+
+  .training-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  .training-panel-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .training-panel-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--offwhite);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+
+  .training-panel-sub {
+    font-size: 0.82rem;
+    color: var(--grey);
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(196,149,42,0.1);
+  }
+
+  .training-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .training-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--grey-light);
+  }
+
+  .training-list li::before {
+    content: '—';
+    color: var(--gold);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  /* ── FIRST CLASS ── */
+  #firstclass {
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #firstclass::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(ellipse at bottom right, rgba(196,149,42,0.05), transparent 70%);
+    pointer-events: none;
+  }
+
+  .firstclass-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .firstclass-steps {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+  }
+
+  .step::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    top: 2.5rem;
+    bottom: 0;
+    width: 1px;
+    background: rgba(196,149,42,0.15);
+  }
+
+  .step:last-child::before { display: none; }
+
+  .step-num {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .step-content { }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--offwhite);
+    margin-bottom: 0.4rem;
+  }
+
+  .step-text {
+    font-size: 0.88rem;
+    color: var(--grey);
+    line-height: 1.8;
+  }
+
+  .firstclass-gear {
+    padding: 2.5rem;
+    background: var(--dark);
+    border: 1px solid rgba(196,149,42,0.15);
+    margin-top: 2rem;
+  }
+
+  .gear-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .gear-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .gear-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    font-size: 0.88rem;
+    color: var(--grey-light);
+  }
+
+  .gear-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--black);
+    position: relative;
+  }
+
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info { }
+
+  .contact-details {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .contact-detail { }
+
+  .contact-detail-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-detail-value {
+    font-size: 0.95rem;
+    color: var(--grey-light);
+    line-height: 1.7;
+  }
+
+  .contact-perks {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: var(--charcoal);
+    border-left: 2px solid var(--gold);
+  }
+
+  .contact-perk {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--offwhite);
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-perk:last-child { margin-bottom: 0; }
+
+  .contact-perk::before {
+    content: '—';
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  .contact-form-wrap { }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--offwhite);
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.4rem;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 0.6rem;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    width: 100%;
+    background: var(--charcoal);
+    border: 1px solid rgba(196,149,42,0.15);
+    color: var(--offwhite);
+    padding: 0.9rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus,
+  .form-select:focus {
+    border-color: var(--gold);
+  }
+
+  .form-textarea {
+    height: 120px;
+    resize: vertical;
+  }
+
+  .form-select {
+    cursor: pointer;
+  }
+
+  .form-select option {
+    background: var(--charcoal);
+    color: var(--offwhite);
+  }
+
+  .form-radio-group {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .form-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.88rem;
+    color: var(--grey-light);
+  }
+
+  .form-radio {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(196,149,42,0.4);
+    background: var(--charcoal);
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 0;
+  }
+
+  .form-radio:checked::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: var(--gold);
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 1.1rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .btn-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    border-top: 1px solid rgba(196,149,42,0.1);
+    padding: 3rem 4vw;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand { }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--offwhite);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    color: var(--grey);
+    margin-top: 0.2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--grey);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(138,128,120,0.5);
+    margin-top: 1.5rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(196,149,42,0.2), transparent);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── LOGO SVG in hero ── */
+  .hero-logo-mark {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(420px, 40vw);
+    opacity: 0.07;
+    z-index: 1;
+  }
+
+  /* Mobile hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--offwhite);
+    transition: transform 0.3s;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .why-card:nth-child(1) { border-left: none; padding-left: 0; }
+    .why-card:nth-child(3) { border-left: none; padding-left: 0; }
+    .about-inner, .fma-grid, .firstclass-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image { aspect-ratio: 16/9; }
+    .training-grid { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  @media (max-width: 680px) {
+    nav { padding: 1rem 4vw; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card { border-left: none !important; padding-left: 0 !important; padding-bottom: 2rem; border-bottom: 1px solid rgba(196,149,42,0.1); }
+    .about-disciplines { grid-template-columns: 1fr; }
+    section { padding: 5rem 4vw; }
+    .hero-content { padding-top: 9rem; }
+    .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-mark">
+      <!-- Saykan eagle SVG -->
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="50" fill="#c4952a"/>
+        <!-- Eagle body -->
+        <ellipse cx="50" cy="52" rx="10" ry="14" fill="#1a1008"/>
+        <!-- Eagle head -->
+        <circle cx="50" cy="36" r="8" fill="#1a1008"/>
+        <!-- Beak -->
+        <polygon points="50,40 54,43 50,46" fill="#c4952a"/>
+        <!-- Left wing -->
+        <path d="M40,50 Q20,35 8,42 Q18,50 38,56 Z" fill="#1a1008"/>
+        <!-- Right wing -->
+        <path d="M60,50 Q80,35 92,42 Q82,50 62,56 Z" fill="#1a1008"/>
+        <!-- Wing tips left -->
+        <path d="M8,42 Q5,50 10,58 Q15,52 18,50" fill="#1a1008"/>
+        <path d="M5,50 Q3,56 8,62 Q13,57 17,53" fill="#1a1008" opacity="0.8"/>
+        <!-- Wing tips right -->
+        <path d="M92,42 Q95,50 90,58 Q85,52 82,50" fill="#1a1008"/>
+        <path d="M95,50 Q97,56 92,62 Q87,57 83,53" fill="#1a1008" opacity="0.8"/>
+        <!-- Sticks crossed below -->
+        <line x1="35" y1="72" x2="55" y2="90" stroke="#1a1008" stroke-width="3" stroke-linecap="round"/>
+        <line x1="65" y1="72" x2="45" y2="90" stroke="#1a1008" stroke-width="3" stroke-linecap="round"/>
+        <!-- Talons -->
+        <path d="M42,66 Q40,72 38,74 M44,68 Q42,74 40,76" stroke="#1a1008" stroke-width="1.5" fill="none"/>
+        <path d="M58,66 Q60,72 62,74 M56,68 Q58,74 60,76" stroke="#1a1008" stroke-width="1.5" fill="none"/>
+        <!-- Eye -->
+        <circle cx="47" cy="35" r="2" fill="#c4952a"/>
+        <circle cx="47" cy="35" r="1" fill="#1a1008"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      Saykan Combat
+      <span>Filipino Martial Arts</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="#firstclass">First Class</a></li>
+    <li><a href="#contact" class="nav-cta">Book Free Trial</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-canvas"></div>
+
+  <!-- Large background eagle SVG -->
+  <svg class="hero-logo-mark" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="148" fill="#c4952a" stroke="#9a731f" stroke-width="2"/>
+    <ellipse cx="150" cy="158" rx="30" ry="42" fill="#1a1008"/>
+    <circle cx="150" cy="110" r="24" fill="#1a1008"/>
+    <polygon points="150,122 162,130 150,138" fill="#c4952a"/>
+    <path d="M120,152 Q60,108 24,126 Q54,152 114,168 Z" fill="#1a1008"/>
+    <path d="M180,152 Q240,108 276,126 Q246,152 186,168 Z" fill="#1a1008"/>
+    <path d="M24,126 Q15,152 30,176 Q45,158 54,152" fill="#1a1008"/>
+    <path d="M15,152 Q9,168 24,188 Q39,172 51,162" fill="#1a1008" opacity="0.8"/>
+    <path d="M276,126 Q285,152 270,176 Q255,158 246,152" fill="#1a1008"/>
+    <path d="M285,152 Q291,168 276,188 Q261,172 249,162" fill="#1a1008" opacity="0.8"/>
+    <line x1="105" y1="220" x2="165" y2="272" stroke="#1a1008" stroke-width="8" stroke-linecap="round"/>
+    <line x1="195" y1="220" x2="135" y2="272" stroke="#1a1008" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="141" cy="108" r="6" fill="#c4952a"/>
+    <circle cx="141" cy="108" r="3" fill="#1a1008"/>
+  </svg>
+
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-text">Arnis · Escrima · Kali</span>
+    </div>
+    <h1 class="hero-title">
+      Learn <em>Filipino<br>Martial Arts</em><br>in Meath
+    </h1>
+    <p class="hero-subtitle">
+      Stick Fighting, Self Defence and Skill-Based Training for Adults. Train in Escrima every Saturday in Bohermeen, just 5 minutes from Navan and 10 minutes from Kells.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">Adults only (18+)</span>
+      <span class="hero-tag">First class free</span>
+      <span class="hero-tag">All equipment provided</span>
+    </div>
+    <a href="#contact" class="btn-primary">Try Your First Class</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- WHY TRAIN -->
+<section id="why">
+  <div class="why-header reveal">
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-text">Why Escrima</span>
+    </div>
+    <h2 class="section-title">A Complete Martial<br><em>Arts System</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-number">01</div>
+      <div class="why-card-title">Practical Self-Defence Skills</div>
+      <p class="why-card-body">Learn timing, movement and awareness through Filipino Martial Arts training grounded in centuries of real application.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-number">02</div>
+      <div class="why-card-title">Coordination & Reflexes</div>
+      <p class="why-card-body">Stick training builds speed, timing and control that transfers directly to empty-hand techniques and everyday movement.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-number">03</div>
+      <div class="why-card-title">Friendly Adult Environment</div>
+      <p class="why-card-body">Classes are welcoming and structured, open to complete beginners aged 18 and over. No experience required.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-number">04</div>
+      <div class="why-card-title">Authentic Lineage</div>
+      <p class="why-card-body">Train in the Saykan system developed by Grandmaster Modesto Llanera — directly connected to Filipino martial tradition.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-image reveal">
+      <div class="about-image-fill">
+        <div class="about-graphic">
+          <!-- Decorative FMA icon -->
+          <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="80" cy="80" r="75" stroke="#c4952a" stroke-width="1" opacity="0.4"/>
+            <circle cx="80" cy="80" r="55" stroke="#c4952a" stroke-width="0.5" opacity="0.2"/>
+            <!-- Crossed sticks -->
+            <line x1="30" y1="30" x2="130" y2="130" stroke="#c4952a" stroke-width="4" stroke-linecap="round"/>
+            <line x1="130" y1="30" x2="30" y2="130" stroke="#c4952a" stroke-width="4" stroke-linecap="round"/>
+            <!-- Grip wrapping -->
+            <line x1="30" y1="30" x2="50" y2="50" stroke="#9a731f" stroke-width="8" stroke-linecap="round"/>
+            <line x1="130" y1="30" x2="110" y2="50" stroke="#9a731f" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="80" cy="80" r="8" fill="#c4952a" opacity="0.6"/>
+          </svg>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(196,149,42,0.5);margin-top:1rem;font-style:italic;">Saykan Combat</p>
+        </div>
+      </div>
+      <div class="about-image-border"></div>
+      <div class="about-image-caption">Bohermeen, Co. Meath</div>
+    </div>
+
+    <div class="about-content reveal">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-text">About</span>
+      </div>
+      <h2 class="section-title">Saykan<br><em>Combat</em></h2>
+      <p class="section-body" style="margin-top:1.5rem;">
+        Saykan Combat teaches Filipino Martial Arts through two core disciplines developed by Grandmaster Modesto Llanera. Our classes provide a structured but approachable environment where adults can develop practical martial arts skills while improving coordination, awareness and fitness.
+      </p>
+
+      <div class="about-disciplines">
+        <div class="discipline-block">
+          <div class="discipline-name">Saykan Arnis</div>
+          <p class="discipline-desc">Filipino weapons training — single stick, double stick, staff and bladed systems.</p>
+        </div>
+        <div class="discipline-block">
+          <div class="discipline-name">Saykan Mano Mano</div>
+          <p class="discipline-desc">Empty-hand combat drawing from the weapons training principles of the system.</p>
+        </div>
+      </div>
+
+      <div class="about-gm">
+        <p class="about-gm-text">
+          Grandmaster Llanera now resides in Ireland and regularly visits clubs to teach the Saykan system directly.
+        </p>
+        <p class="about-gm-credit">Grandmaster Modesto Llanera — Founder, Saykan System</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS FMA -->
+<section id="fma" style="background:var(--charcoal);">
+  <div class="fma-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-text">The Art</span>
+      </div>
+      <h2 class="section-title">What Is <em>Filipino<br>Martial Arts</em></h2>
+    </div>
+    <div class="fma-grid">
+      <div class="fma-facts">
+        <div class="fma-fact reveal">
+          <div class="fma-fact-label">Origin</div>
+          <p class="fma-fact-text">Arnis — also known as Escrima or Kali — is the national martial art of the Philippines, with centuries of history as a living combat system refined through real conflict and warfare.</p>
+        </div>
+        <div class="fma-fact reveal">
+          <div class="fma-fact-label">Method</div>
+          <p class="fma-fact-text">Training begins with the stick. The emphasis on timing, movement and weapon awareness means skills developed with the rattan transfer naturally to empty-hand and self-defence situations.</p>
+        </div>
+        <div class="fma-fact reveal">
+          <div class="fma-fact-label">Accessibility</div>
+          <p class="fma-fact-text">Unlike many martial arts, FMA begins with weapons training rather than building up to it. This accelerates the development of coordination, distance awareness and controlled power from the very first session.</p>
+        </div>
+      </div>
+      <div class="fma-visual reveal">
+        <div class="fma-quote-block">
+          <p class="fma-quote-text">The art teaches you to see before you move — and to move before your opponent has finished thinking.</p>
+        </div>
+        <div class="fma-films">
+          <div class="fma-films-label">Seen in Film</div>
+          <p class="fma-films-list">The Bourne Identity · Mission Impossible III · Enter the Dragon</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE TRAIN -->
+<section id="training">
+  <div class="training-inner">
+    <div class="training-header reveal">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-text">Curriculum</span>
+      </div>
+      <h2 class="section-title">What We <em>Train</em></h2>
+      <p class="section-body" style="margin-top:1rem;">The Saykan system is direct, practical and accessible to beginners from the very first session.</p>
+    </div>
+    <div class="training-grid reveal">
+      <div class="training-panel">
+        <div class="training-panel-eyebrow">Discipline One</div>
+        <div class="training-panel-title">Saykan Arnis</div>
+        <p class="training-panel-sub">Filipino Weapons Training</p>
+        <ul class="training-list">
+          <li>Single stick fundamentals and flow</li>
+          <li>Double stick coordination and patterns</li>
+          <li>Short stick and close-range work</li>
+          <li>Staff and improvised weapon applications</li>
+          <li>Knife awareness and defence principles</li>
+          <li>Weapon versus empty-hand training</li>
+        </ul>
+      </div>
+      <div class="training-panel">
+        <div class="training-panel-eyebrow">Discipline Two</div>
+        <div class="training-panel-title">Saykan Mano Mano</div>
+        <p class="training-panel-sub">Empty-Hand Combat</p>
+        <ul class="training-list">
+          <li>Close-range striking techniques</li>
+          <li>Defensive movement and footwork</li>
+          <li>Practical self-defence concepts</li>
+          <li>Transitioning from weapons to empty hand</li>
+          <li>Partner drilling and controlled sparring</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST CLASS -->
+<section id="firstclass">
+  <div class="firstclass-inner">
+    <div>
+      <div class="reveal">
+        <div class="section-eyebrow">
+          <span class="section-eyebrow-text">Getting Started</span>
+        </div>
+        <h2 class="section-title">Your <em>First<br>Class</em></h2>
+        <p class="section-body" style="margin-top:1.5rem;">
+          No experience is required and no equipment is needed for your first session. Come along, meet the group and see if Filipino Martial Arts is for you.
+        </p>
+      </div>
+
+      <div class="firstclass-steps">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Arrive and Meet the Group</div>
+            <p class="step-text">Classes are relaxed and welcoming. You'll be introduced to the other students and given a brief overview of what the session covers.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Learn Basic Stick Drills</div>
+            <p class="step-text">You'll be guided through foundational strike and defence patterns — the building blocks of the entire Saykan system.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Partner Training</div>
+            <p class="step-text">Work with a partner in a structured, controlled environment to begin developing timing and awareness from day one.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Decide If It's for You</div>
+            <p class="step-text">No obligation. Your first class is completely free and you'll leave with a clear sense of whether the training suits you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="firstclass-gear reveal">
+        <div class="gear-title">What to Bring</div>
+        <ul class="gear-list">
+          <li>Comfortable training clothes (t-shirt and tracksuit bottoms are fine)</li>
+          <li>All training equipment is provided for the trial session</li>
+          <li>No martial arts experience required</li>
+          <li>Water bottle recommended</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:2rem; padding:2.5rem; background:var(--dark); border:1px solid rgba(196,149,42,0.15);" class="reveal">
+        <div class="section-eyebrow" style="margin-bottom:1rem;">
+          <span class="section-eyebrow-text">Class Schedule</span>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--offwhite);line-height:1.1;">
+          Saturday<br><em style="color:var(--gold);">Classes</em>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+          <div>
+            <div style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;">Location</div>
+            <div style="font-size:0.92rem;color:var(--grey-light);">Bohermeen, County Meath</div>
+            <div style="font-size:0.82rem;color:var(--grey);margin-top:0.2rem;">5 min from Navan · 10 min from Kells</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;" class="reveal">
+        <a href="#contact" class="btn-primary" style="display:block;text-align:center;">Book Your Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="reveal">
+        <div class="section-eyebrow">
+          <span class="section-eyebrow-text">Come Train</span>
+        </div>
+        <h2 class="section-title">Try a <em>Class</em></h2>
+        <p class="section-body" style="margin-top:1.5rem;">
+          We welcome anyone curious about Filipino Martial Arts to come along and try a class. No experience, no equipment and no commitment required.
+        </p>
+      </div>
+
+      <div class="contact-perks reveal" style="margin-top:2rem;">
+        <div class="contact-perk">First class is completely free</div>
+        <div class="contact-perk">No equipment required to attend</div>
+        <div class="contact-perk">Beginners genuinely welcome</div>
+        <div class="contact-perk">Adults 18 and over</div>
+      </div>
+
+      <div class="contact-details reveal">
+        <div class="contact-detail">
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-value">Bohermeen, County Meath<br><span style="font-size:0.85rem;color:var(--grey);">5 minutes from Navan · 10 minutes from Kells</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">When</div>
+          <div class="contact-detail-value">Saturday classes</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value"><a href="mailto:info@saykancombat.ie" style="color:var(--grey-light);text-decoration:none;">info@saykancombat.ie</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap reveal">
+      <div class="form-title">Book Your Free<br><em style="font-style:italic;color:var(--gold);">Trial Class</em></div>
+
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" class="form-input" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address *</label>
+          <input type="email" class="form-input" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone (optional)</label>
+          <input type="tel" class="form-input" placeholder="+353 ...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Have you trained martial arts before?</label>
+          <div class="form-radio-group">
+            <label class="form-radio-label">
+              <input type="radio" name="experience" class="form-radio" value="yes">
+              Yes
+            </label>
+            <label class="form-radio-label">
+              <input type="radio" name="experience" class="form-radio" value="no" checked>
+              No
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message (optional)</label>
+          <textarea class="form-textarea" placeholder="Any questions before you come along?"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Request Free Trial Class</button>
+      </form>
+
+      <div id="form-success" style="display:none;margin-top:1.5rem;padding:1.5rem;background:rgba(196,149,42,0.08);border:1px solid rgba(196,149,42,0.25);text-align:center;">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--offwhite);">Request Received</p>
+        <p style="font-size:0.85rem;color:var(--grey);margin-top:0.5rem;">We'll be in touch shortly to confirm your trial class.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-name">Saykan Combat</div>
+      <div class="footer-tagline">Filipino Martial Arts Training in Meath · Saturday classes in Bohermeen</div>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:info@saykancombat.ie">info@saykancombat.ie</a>
+      <a href="#contact">Book Free Trial</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 Saykan Combat. Filipino Martial Arts in County Meath, Ireland.</p>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// Stagger siblings
+document.querySelectorAll('.why-card, .step, .fma-fact').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.1}s`;
+});
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('form-success').style.display = 'block';
+  e.target.style.display = 'none';
+}
+
+// Mobile nav toggle (simple version)
+document.querySelector('.nav-toggle').addEventListener('click', () => {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = '';
+    links.style.position = '';
+    links.style.flexDirection = '';
+  } else {
+    links.style.display = 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'fixed';
+    links.style.top = '70px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'rgba(10,9,6,0.98)';
+    links.style.padding = '2rem';
+    links.style.gap = '1.5rem';
+    links.style.borderBottom = '1px solid rgba(196,149,42,0.15)';
+    links.style.zIndex = '99';
+  }
+});
+</script>
+</body>
+</html>
